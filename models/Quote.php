@@ -173,6 +173,27 @@ class Quote{
     $stmt->bindParam(':author_id', $this->author_id);
     $stmt->bindParam(':category_id', $this->category_id);
 
+
+   //Check to see if query executes  
+   if(!$stmt->execute()){
+
+    //Print error if something goes wrong
+    printf("Error: %s.\n", $stmt->error);
+    return false; 
+
+  }
+  
+  //Check to see if any rows where updated
+  if($stmt->rowCount() > 0){
+      return true;
+  }else{
+    return false;
+  }
+
+
+
+
+/* 
     //check if statement executes
     if($stmt->execute()){
       //Retrieve last inserted id
@@ -183,11 +204,12 @@ class Quote{
     }else{
 
      //Print error if something goes wrong
-     printf("Errorsssss: %s.\n", $stmt->error);
+     printf("Error: %s.\n", $stmt->error);
     
      //Query failed 
      return false;
-    }
+    } */
+    
    } 
 
   //Update Quote
@@ -233,6 +255,7 @@ class Quote{
     }else{
       return false;
     }
+
   }
 
   //Delete  Quote
