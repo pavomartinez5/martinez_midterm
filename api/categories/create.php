@@ -21,6 +21,12 @@
     //GET raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
+    //Check to see all parameters exist if they do not send message and exit
+    if (!isset($data->category)) {
+      echo json_encode(array('message' => 'Missing Required Parameters'));
+      exit();
+    }
+
     //Assign what is in the data to the category object
     $category->category = $data->category;
 

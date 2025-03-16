@@ -47,7 +47,8 @@
         print_r(json_encode($quote_arr));
     } else {
         echo json_encode(
-        array('message' => 'Quote Not Created')
+        array('message' => 'author_id Not Found',
+        'message' => 'author_id Not Found')
         );
     }
 ?>
