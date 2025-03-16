@@ -47,7 +47,7 @@
         print_r(json_encode($quote_arr));
     } else {
         echo json_encode(
-        array('message' => 'No Quotes Found')
+        array('message' => 'No Quotes created')
         );
     }
 ?>
