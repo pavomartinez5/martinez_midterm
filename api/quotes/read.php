@@ -27,8 +27,8 @@
         //Quotes array
         $quotes_arr = array();
 
-        //Figure out what this does?
-        $quotes_arr['data'] = array();
+       /*  //Figure out what this does?
+        $quotes_arr['data'] = array(); */
 
         while($row = $result->fetch(PDO::FETCH_ASSOC)){
             extract($row);
@@ -40,11 +40,11 @@
                 'category' => $category
             );
 
-            //Push to 'data'
-            array_push($quotes_arr['data'], $quotes_item);
+            /* //Push to 'data'
+            array_push($quotes_arr['data'], $quotes_item); */
 
-            /* //push to array
-            array_push($quotes_arr, $quotes_item);  */
+            //push to array
+            array_push($quotes_arr, $quotes_item);
         }
 
         // turn to JSON & output
