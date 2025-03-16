@@ -174,27 +174,36 @@ class Quote{
     $stmt->bindParam(':category_id', $this->category_id);
 
 
-   //Check to see if query executes  
-   if(!$stmt->execute()){
 
-    //Print error if something goes wrong
-    printf("Error (Programer Generated): %s.\n", $stmt->error);
-    return false; 
+    //Execute query
+    $stmt->execute();
 
-  }
-  
-  //Check to see if any rows where updated
-  if($stmt->rowCount() > 0){
-      return true;
-  }else{
-    return false;
-  }
+    //Return associate array
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //check if record was found 
+    if($row){
+
+      //Retrieve last inserted id
+      $this->id = $this->conn->lastInsertId();
+      
+      //Query succeeded category exist
+      return true; 
+
+    }else{
+      
+      // Explicity set category to null
+      $this->category = null;
+
+      //Indicate query failure category did not exist
+      return false; 
+    }
 
 
 
 
-/* 
-    //check if statement executes
+
+/*     //check if statement executes
     if($stmt->execute()){
       //Retrieve last inserted id
       $this->id = $this->conn->lastInsertId();
@@ -209,6 +218,7 @@ class Quote{
      //Query failed 
      return false;
     } */
+
     
    } 
 
@@ -255,7 +265,6 @@ class Quote{
     }else{
       return false;
     }
-
   }
 
   //Delete  Quote
