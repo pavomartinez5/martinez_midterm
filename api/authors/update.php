@@ -21,6 +21,12 @@
     //GET raw posted data
     $data = json_decode(file_get_contents("php://input"));
 
+    //Check to see all parameters exist if they do not send message and exit
+    if (!isset($data->id) || !isset($data->author)) {
+    echo json_encode(array('message' => 'Missing Required Parameters'));
+    exit();
+    }
+
     //Set ID to update
     $author->id = $data->id;
 

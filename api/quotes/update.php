@@ -55,8 +55,7 @@
     } else {
         echo json_encode(
 
-        array('message' => 'author_id Not Found',
-                'message' => 'category_id Not Found')
+        array('message' => 'No Quotes Found')
         );
     }
      ?>
