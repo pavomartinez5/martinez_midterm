@@ -173,37 +173,30 @@ class Quote{
     $stmt->bindParam(':author_id', $this->author_id);
     $stmt->bindParam(':category_id', $this->category_id);
 
-
-
-    //Execute query
+ 
     $stmt->execute();
 
-    //Return associate array
+   
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    //check if record was found 
-    if($row){
+    
+    if ($row) {
+       
+        return true;
+    } else {
+        
+        $this->author_id = null;
 
-      //Retrieve last inserted id
-      $this->id = $this->conn->lastInsertId();
-      
-      //Query succeeded category exist
-      return true; 
-
-    }else{
-      
-      // Explicity set category to null
-      $this->category = null;
-
-      //Indicate query failure category did not exist
-      return false; 
+       
+        return false;
     }
 
 
 
 
 
-/*     //check if statement executes
+    /* 
+    //check if statement executes
     if($stmt->execute()){
       //Retrieve last inserted id
       $this->id = $this->conn->lastInsertId();
@@ -217,8 +210,8 @@ class Quote{
     
      //Query failed 
      return false;
-    } */
-
+    }
+     */
     
    } 
 
