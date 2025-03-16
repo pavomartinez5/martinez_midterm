@@ -183,7 +183,7 @@ class Quote{
     }else{
 
      //Print error if something goes wrong
-     printf("Error: %s.\n", $stmt->error);
+     printf("Errorsssss: %s.\n", $stmt->error);
     
      //Query failed 
      return false;
