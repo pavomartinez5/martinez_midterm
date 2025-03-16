@@ -40,7 +40,7 @@ class Database{
         //Azure Data Studio  postgreSQL render server host DB Params
         private $conn;
         private $host;
-        private $port;
+        private $port = 5432;
         private $db_name;
         private $username;
         private $password;
