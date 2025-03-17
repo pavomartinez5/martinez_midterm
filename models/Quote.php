@@ -171,7 +171,7 @@ class Quote{
     $AuthorCheckStmt->execute();
 
     //Check to se if there i sno rows
-    if($AuthorCheckStmt->fetchColumn()){
+    if(!$AuthorCheckStmt->fetchColumn()){
       return false; 
     }
 
