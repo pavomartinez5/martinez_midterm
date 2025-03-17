@@ -46,11 +46,11 @@
         //Convert to  JSON
         print_r(json_encode($quote_arr));
     } else {
-        if($this->author_id){
+        if($quote->author_id){
             echo json_encode(
                 array('message' => 'author_id Not Found')
                 );
-        }elseif($this->category_id){
+        }elseif($quote->category_id){
             echo json_encode(
                 array('message' => 'category_id Not Found')
                 );
