@@ -55,16 +55,26 @@
                 'author' => $author,
                 'category' => $category
             );
+
+
+           /*  
+           //Push to 'data'
+            array_push($quotes_arr['data'], $quotes_item);
+            */
+
+             //push to array
+             array_push($quotes_arr, $quotes_item);
+
         }
 
-        // turn to JSON & output
-        echo json_encode($quotes_item);
-    }else{
-        //No Posts
-        echo json_encode(
-            array('message' => 'No Quotes Found')
-        );
-    }
+            // turn to JSON & output
+            echo json_encode($quotes_arr);
+        }else{
+            //No Posts
+            echo json_encode(
+                array('message' => 'No Quotes Found')
+            );
+        }
 
 
 
