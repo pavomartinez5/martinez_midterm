@@ -168,7 +168,7 @@ class Quote{
     $AuthorCheckStmt->bindParam(':author_id', $this->author_id);
 
     //Check to see if the query select is true or false
-    if(!$AuthorCheckStmt->execute()){
+    if($AuthorCheckStmt->execute()){
       return false; 
     }
 
