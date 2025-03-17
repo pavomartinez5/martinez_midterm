@@ -46,7 +46,7 @@
         //Convert to  JSON
         print_r(json_encode($quote_arr));
     } else {
-        /* if($this->author_id){
+        if($this->author_id){
             echo json_encode(
                 array('message' => 'author_id Not Found')
                 );
@@ -58,11 +58,9 @@
         echo json_encode(
         array('message' => 'No Quotes created')
         );
-     } */
+     } 
 
 
-     echo json_encode(
-        array('message' => 'No Quotes created')
-        );
+   
     }
 ?>
