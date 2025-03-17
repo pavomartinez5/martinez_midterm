@@ -38,7 +38,20 @@
     $num = $result->rowCount();//rowCount is a predefined php method
 
      //Check if any quotes
-     if($num > 0){
+     if($num === 1){
+
+    //Create arrays
+    $quote_arr = array(
+        'id' => (int)$quote->id,
+        'quote' => $quote->quote,
+        'author' => $quote->author,
+        'category' => $quote->category,
+        );
+    
+    //Convert to  JSON
+    print_r(json_encode($quote_arr));
+
+     }elseif($num > 1){
         //Quotes array
         $quotes_arr = array();
         
