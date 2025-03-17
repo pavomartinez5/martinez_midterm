@@ -46,18 +46,18 @@
         //Convert to  JSON
         print_r(json_encode($quote_arr));
     } else {
-        if($quote->author_id){
+        if($quote->author_id === null){
             echo json_encode(
                 array('message' => 'author_id Not Found')
                 );
-        }elseif($quote->category_id){
+        }elseif($quote->category_id === null){
             echo json_encode(
                 array('message' => 'category_id Not Found')
                 );
         }else{
-        echo json_encode(
-        array('message' => 'No Quotes created')
-        );
+            echo json_encode(
+            array('message' => 'No Quotes created')
+            );
      } 
 
 

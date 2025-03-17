@@ -172,7 +172,10 @@ class Quote{
 
     //Check to see if there true or false
     if(!$AuthorCheckStmt->fetchColumn()){
-      printf("Error Programergit: Author ID %s does not exist.\n", $this->author_id);
+
+      //Set author_id
+      $this->author_id = null;
+      
       //Author does not exist
       return false; 
     }
@@ -194,6 +197,8 @@ class Quote{
     //Check to see if there true or false
     if(!$CategoryCheckStmt->fetchColumn()){
 
+      //Set author_id
+      $this->category_id = null;
 
       //Author does not exist
       return false; 
