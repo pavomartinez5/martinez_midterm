@@ -155,6 +155,24 @@ class Quote{
 
   //Create Quote
   public function create(){
+
+    //check if author_id exists
+    //Create PostgresQSL query for author
+    $AuthorCheckQuery = 'SELECT EXISTS 
+                        (SELECT 1 FROM authors 
+                          WHERE id = :author_id)';
+    //Prepare Statement
+    $AuthorCheckStmt = $this->conn->prepare($AuthorCheckQuery);
+
+    //Bind data
+    $AuthorCheckStmt->bindParam(':author_id', $this->author_id);
+
+    //Check to see if the query select is true or false
+    if(!$AuthorCheckStmt->execute()){
+      return false; 
+    }
+
+
     //Create PostgreSQL query
     $query = 'INSERT INTO ' .$this->table.' (quote, author_id, category_id)
     VALUES 
@@ -173,29 +191,6 @@ class Quote{
     $stmt->bindParam(':author_id', $this->author_id);
     $stmt->bindParam(':category_id', $this->category_id);
 
- 
-    $stmt->execute();
-
-   
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    
-    if ($row) {
-       
-        return true;
-    } else {
-        
-        $this->author_id = null;
-
-       
-        return false;
-    }
-
-
-
-
-
-    /* 
     //check if statement executes
     if($stmt->execute()){
       //Retrieve last inserted id
@@ -211,7 +206,7 @@ class Quote{
      //Query failed 
      return false;
     }
-     */
+    
     
    } 
 
