@@ -170,11 +170,8 @@ class Quote{
     //Execute query
     $AuthorCheckStmt->execute();
 
-    //Return associate array
-    $row = $AuthorCheckStmt->fetch(PDO::FETCH_ASSOC);
-
     //Check to se if there i sno rows
-    if(!$row){
+    if($AuthorCheckStmt->fetchColumn()){
       return false; 
     }
 
