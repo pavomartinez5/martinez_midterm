@@ -167,8 +167,14 @@ class Quote{
     //Bind data
     $AuthorCheckStmt->bindParam(':author_id', $this->author_id);
 
-    //Check to see if the query select is true or false
-    if($AuthorCheckStmt->execute()){
+    //Execute query
+    $AuthorCheckStmt->execute();
+
+    //Return associate array
+    $row = $AuthorCheckStmt->fetch(PDO::FETCH_ASSOC);
+
+    //Check to se if there i sno rows
+    if(!$row){
       return false; 
     }
 
