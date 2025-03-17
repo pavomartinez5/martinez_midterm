@@ -243,6 +243,54 @@ class Quote{
 
   //Update Quote
   public function update(){
+    
+    //check if author_id exists
+    //Create PostgresQSL query for author
+    $AuthorCheckQuery = 'SELECT EXISTS 
+                        (SELECT 1 FROM authors 
+                          WHERE id = :author_id)';
+    //Prepare Statement
+    $AuthorCheckStmt = $this->conn->prepare($AuthorCheckQuery);
+
+    //Bind data
+    $AuthorCheckStmt->bindParam(':author_id', $this->author_id);
+
+    //Execute query
+    $AuthorCheckStmt->execute();
+
+    //Check to see if there true or false
+    if(!$AuthorCheckStmt->fetchColumn()){
+
+      //Set author_id
+      $this->author_id = null;
+      
+      //Author does not exist
+      return false; 
+    }
+
+    //check if category_id exists
+    //Create PostgresQSL query for author
+    $CategoryCheckQuery = 'SELECT EXISTS 
+                        (SELECT 1 FROM categories 
+                          WHERE id = :category_id)';
+    //Prepare Statement
+    $CategoryCheckStmt = $this->conn->prepare($CategoryCheckQuery);
+
+    //Bind data
+    $CategoryCheckStmt->bindParam(':category_id', $this->category_id);
+
+    //Execute query
+    $CategoryCheckStmt->execute();
+
+    //Check to see if there true or false
+    if(!$CategoryCheckStmt->fetchColumn()){
+
+      //Set author_id
+      $this->category_id = null;
+
+      //Author does not exist
+      return false; 
+    }
 
     //Create query
     $query = 'UPDATE ' .$this->table.'

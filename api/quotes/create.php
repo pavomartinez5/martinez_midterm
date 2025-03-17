@@ -59,8 +59,5 @@
             array('message' => 'No Quotes created')
             );
      } 
-
-
-   
     }
 ?>
