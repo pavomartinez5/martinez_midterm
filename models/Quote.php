@@ -170,8 +170,37 @@ class Quote{
     //Execute query
     $AuthorCheckStmt->execute();
 
-    //Check to se if there i sno rows
+    //Check to see if there true or false
     if(!$AuthorCheckStmt->fetchColumn()){
+
+      //set author_id
+      $this->author_id = null;
+
+      //Author does not exist
+      return false; 
+    }
+
+    //check if category_id exists
+    //Create PostgresQSL query for author
+    $CategoryCheckQuery = 'SELECT EXISTS 
+                        (SELECT 1 FROM categories 
+                          WHERE id = :category_id)';
+    //Prepare Statement
+    $CategoryCheckStmt = $this->conn->prepare($CategoryCheckQuery);
+
+    //Bind data
+    $CategoryCheckStmt->bindParam(':author_id', $this->author_id);
+
+    //Execute query
+    $CategoryCheckStmt->execute();
+
+    //Check to see if there true or false
+    if(!$CategoryCheckStmt->fetchColumn()){
+
+      //set author_id
+      $this->category_id = null;
+      
+      //Author does not exist
       return false; 
     }
 
@@ -209,8 +238,7 @@ class Quote{
      //Query failed 
      return false;
     }
-    
-    
+  
    } 
 
   //Update Quote
