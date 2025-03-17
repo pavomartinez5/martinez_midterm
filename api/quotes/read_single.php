@@ -39,17 +39,24 @@
 
      //Check if any quotes
      if($num === 1){
-
-    //Create arrays
-    $quote_arr = array(
-        'id' => (int)$quote->id,
-        'quote' => $quote->quote,
-        'author' => $quote->author,
-        'category' => $quote->category,
-        );
     
-    //Convert to  JSON
-    print_r(json_encode($quote_arr));
+        //Quotes array
+    $quotes_arr = array();
+            
+    while($row = $result->fetch(PDO::FETCH_ASSOC)){
+        extract($row);
+
+        $quotes_item = array(
+            'id' => $id,
+            'quote' => $quote,
+            'author' => $author,
+            'category' => $category
+        );
+    }
+
+        // turn to JSON & output
+        echo json_encode($quotes_arr);
+            
 
      }elseif($num > 1){
         //Quotes array
