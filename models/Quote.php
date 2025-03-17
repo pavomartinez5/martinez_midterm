@@ -173,8 +173,7 @@ class Quote{
     //Check to see if there true or false
     if(!$AuthorCheckStmt->fetchColumn()){
 
-      //set author_id
-      $this->author_id = null;
+ 
 
       //Author does not exist
       return false; 
@@ -189,7 +188,7 @@ class Quote{
     $CategoryCheckStmt = $this->conn->prepare($CategoryCheckQuery);
 
     //Bind data
-    $CategoryCheckStmt->bindParam(':author_id', $this->author_id);
+    $CategoryCheckStmt->bindParam(':category_id', $this->category_id);
 
     //Execute query
     $CategoryCheckStmt->execute();
@@ -197,9 +196,7 @@ class Quote{
     //Check to see if there true or false
     if(!$CategoryCheckStmt->fetchColumn()){
 
-      //set author_id
-      $this->category_id = null;
-      
+
       //Author does not exist
       return false; 
     }
