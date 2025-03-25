@@ -1,6 +1,6 @@
 <?php
 class Author{
-  //DB Information
+  //DB Information 
   private $conn;
   private $table = 'authors'; // Variable will be used in query to select the authors table
 
