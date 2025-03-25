@@ -24,7 +24,7 @@ if ($method === 'OPTIONS') {
     exit();
 }
 
-// Route based on HTTP method
+// Route based on HTTP method 
 switch ($method) {
     case 'GET':
         //Check to see if id is provided in the request
