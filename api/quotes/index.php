@@ -28,7 +28,7 @@ if ($method === 'OPTIONS') {
 switch ($method) {
     case 'GET':
         //Check to see if id is provided in the request
-        isset($_GET['id']) || isset($_GET['author_id']) || isset($_GET['category_id'])
+        isset($_GET['id']) || isset($_GET['author_id']) || isset($_GET['category_id']) || isset($_GET['random'])
         //Route to read_single.php if an id is provided
         ? include_once 'read_single.php'
         // Route to read.php
