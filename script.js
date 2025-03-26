@@ -16,7 +16,7 @@ document.getElementById("generate").addEventListener("click", generateQuotes);
 
 function generateQuotes() {
   let div = document.createElement("div");
-  quote.innerHTML = `Loading New Quotes...<i class = "fa-solid fa-sync fa-spin"></i>`;
+  quote.innerHTML = `Loading New Random Quotes...<i class = "fa-solid fa-sync fa-spin"></i>`;
   generate.innerHTML = "Generating...";
 
   fetch("/api/quotes/read_single.php/?random=true", {
@@ -28,7 +28,7 @@ function generateQuotes() {
     .then((data) => {
       console.log(data);
 
-      generate.innerHTML = "New Quote";
+      generate.innerHTML = "New Random Quote";
 
       quote.innerHTML = "";
       div.innerHTML += '<i class ="fa-solid fa-quote-left"></i> &nbsp;';
