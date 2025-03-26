@@ -19,7 +19,7 @@ function generateQuotes() {
   quote.innerHTML = `Loading New Quotes...<i class = "fa-solid fa-sync fa-spin"></i>`;
   generate.innerHTML = "Generating...";
 
-  fetch("/api/quotes/read.php", {
+  fetch("/api/quotes/read_single.php/?random=true", {
     headers: {
       "Content-Type": "application/json",
     },
