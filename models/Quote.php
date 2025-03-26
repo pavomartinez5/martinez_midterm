@@ -139,6 +139,24 @@ class Quote{
       //Bind ID
       $stmt->bindParam(1, $this->category);
 
+    }else if(isset($_GET['random'])){
+
+      //Create PostgreSQL query
+      $query = 'SELECT q.id, 
+                      q.quote, 
+                      a.author, 
+                      c.category
+                FROM ' . $this->table . ' q
+                LEFT JOIN 
+                  authors a ON q.author_id = a.id
+                LEFT JOIN 
+                  categories c ON q.category_id = c.id
+                ORDER BY RANDOM()
+                LIMIT 1';
+                
+       //Prepare statement
+       $stmt = $this->conn->prepare($query);
+
     }
   
     //Execute query
