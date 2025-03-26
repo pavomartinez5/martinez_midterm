@@ -35,7 +35,7 @@ function generateQuotes() {
       div.innerHTML += data.quote;
       div.innerHTML += '&nbsp; <i class ="fa-solid fa-quote-right"></i>';
 
-      div.innerHTML += `<div class="author"><span>__</span>${data[0].author}</div>`;
+      div.innerHTML += `<div class="author"><span>__</span>${data.author}</div>`;
       quote.append(div);
 
       category.innerHTML = data.category;
