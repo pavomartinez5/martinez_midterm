@@ -33,6 +33,8 @@
 
     }else if(isset($_GET['category_id'])){
         $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die(); 
+    }else if(isset($_GET['random'])){
+        $quote->random = isset($_GET['random']) ? $_GET['random'] : die(); 
     }
 
  

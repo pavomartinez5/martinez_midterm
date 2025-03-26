@@ -12,6 +12,7 @@ class Quote{
     public $category_id;
     public $author;
     public $category;
+    public $random;
   
     //Constructor DB
     public function __construct($db){
@@ -116,7 +117,7 @@ class Quote{
 
       }
       
-    }else{
+    }else if(isset($_GET['category_id'])){
     
       //Create PostgreSQL query
       $query = 'SELECT q.id,
