@@ -47,6 +47,7 @@ class Quote{
   public function read_single(){
 
    if(isset($_GET['id'])){
+    
       //Create PostgreSQL query
       $query = 'SELECT q.id,
                         q.quote,
