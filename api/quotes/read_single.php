@@ -33,7 +33,7 @@
   
         }
 
-    }else{
+    }else if(isset($_GET['category_id'])){
 
         $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die(); 
 
