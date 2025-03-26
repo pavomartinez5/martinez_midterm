@@ -12,7 +12,6 @@ class Quote{
     public $category_id;
     public $author;
     public $category;
-    public $random;
   
     //Constructor DB
     public function __construct($db){
@@ -153,7 +152,7 @@ class Quote{
                   categories c ON q.category_id = c.id
                 ORDER BY RANDOM()
                 LIMIT 1';
-                
+
        //Prepare statement
        $stmt = $this->conn->prepare($query);
 

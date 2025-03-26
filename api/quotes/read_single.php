@@ -28,10 +28,12 @@
         $quote->author = isset($_GET['author_id']) ? $_GET['author_id'] : die();
 
         if(isset($_GET['category_id'])){
-            $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die(); 
+
+            $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die();
+             
         }
 
-    }else if(isset($_GET['category_id'])){
+    }else{
 
         $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die(); 
 
