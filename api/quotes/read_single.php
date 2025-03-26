@@ -20,13 +20,18 @@
     //Logic Statement if id is set in request(Example: something.com?id=3 ), then set to id that was requested to quote id, else end
 
     if(isset($_GET['id'])){
+
         $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+
     }else if(isset($_GET['author_id'])){ 
+
         $quote->author = isset($_GET['author_id']) ? $_GET['author_id'] : die();
+
         if(isset($_GET['category_id'])){
             $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die(); 
         }
-    }else{
+
+    }else if(isset($_GET['category_id'])){
         $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die(); 
     }
 
