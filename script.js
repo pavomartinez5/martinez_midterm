@@ -19,9 +19,7 @@ function generateQuotes() {
   quote.innerHTML = `Loading New Quotes...<i class = "fa-solid fa-sync fa-spin"></i>`;
   generate.innerHTML = "Generating...";
 
-  fetch("https://api.api-ninjas.com/v1/quotes", {
-    headers: { "X-Api-Key": "L0zkvpVBwW6sO0OG9k2Zzg==eatzRR5IqOw2ZuRO" },
-  })
+  fetch("../martinez_midterm/api/authors/read.php")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
