@@ -19,18 +19,18 @@
           <span id="category">category</span>
         </div>
 
-        <h2>Quote of the Day</h2>
+        <h2>Random Quote</h2>
 
         <div class="quote"></div>
 
         <div class="buttons">
-          <div class="icons">
+<!--           <div class="icons">
             <i class="fa-regular fa-heart" id="likeQuote"></i>
             <i class="fa-solid fa-list" id="likeList"></i>
             <i class="fa-regular fa-copy"></i>
             <i class="fa-brands fa-twitter"></i>
-          </div>
-          <button id="generate">New Quote</button>
+          </div> -->
+          <button id="generate">New Random Quote</button>
         </div>
       </div>
     </div>
