@@ -41,5 +41,3 @@ function generateQuotes() {
       category.innerHTML = data.category;
     });
 }
-
-generateQuotes();
