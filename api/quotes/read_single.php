@@ -30,7 +30,7 @@
         if(isset($_GET['category_id'])){
 
             $quote->category = isset($_GET['category_id']) ? $_GET['category_id'] : die();
-             
+  
         }
 
     }else{
@@ -93,27 +93,5 @@
                 array('message' => 'No Quotes Found')
             );
         }
-
-
-
-
-
-/*     //Check to see if read_single was successful
-    if ($quote->read_single()){
-       
-        //Create arrays
-        $quote_arr = array(
-        'id' => (int)$quote->id,
-        'quote' => $quote->quote,
-        'author' => $quote->author,
-        'category' => $quote->category,
-        );
-    
-        //Convert to  JSON
-        print_r(json_encode($quote_arr));
-    }else{
-        echo json_encode(
-            array('message' => 'No Quotes Found'));
-    }  */
 
 ?>
