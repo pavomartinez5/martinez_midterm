@@ -40,7 +40,7 @@ class Database{
         //Azure Data Studio  postgreSQL render server host DB Params
         private $conn;
         private $host;
-        private $port = 80;
+        //private $port;
         private $db_name;
         private $username;
         private $password;
@@ -52,7 +52,7 @@ class Database{
             $this->password = getenv('PASSWORD');
             $this->db_name = getenv('DBNAME');
             $this->host = getenv('HOST');
-            $this->port = getenv('PORT');
+            //$this->port = getenv('PORT');
         }
 
         //Azure Data Studio postgreSQL render server host DB Connect
@@ -63,8 +63,8 @@ class Database{
                 return $this->conn;
             }else{
 
-                $dsn = "pgsql:host={$this->host};port={$this->port}; dbname={$this->db_name}";
-                //$dsn = "pgsql:host={$this->host}; dbname={$this->db_name}";
+                //dsn = "pgsql:host={$this->host};port={$this->port}; dbname={$this->db_name}";
+                $dsn = "pgsql:host={$this->host}; dbname={$this->db_name}";
 
                 try{
 
