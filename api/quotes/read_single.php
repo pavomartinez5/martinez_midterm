@@ -19,9 +19,15 @@
     //Get ID form url
     //Logic Statement if id is set in request(Example: something.com?id=3 ), then set to id that was requested to quote id, else end
 
-    if(isset($_GET['id'])){
+    if(isset($_GET['id']) || isset($_GET['random'])){
 
-        $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+        //$quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+
+        if(isset($_GET['id'])){
+            $quote->id = isset($_GET['id']) ? $_GET['id'] : die();
+        }else{
+            $quote->id = isset($_GET['random']) ? $_GET['random'] : die();
+        }
 
     }else if(isset($_GET['author_id'])){ 
 
