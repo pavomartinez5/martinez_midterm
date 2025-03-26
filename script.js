@@ -19,7 +19,7 @@ function generateQuotes() {
   quote.innerHTML = `Loading New Quotes...<i class = "fa-solid fa-sync fa-spin"></i>`;
   generate.innerHTML = "Generating...";
 
-  fetch("../martinez_midterm/api/authors/read.php")
+  fetch("../martinez_midterm/api/authors/read_single.php/?random=true")
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
