@@ -63,7 +63,7 @@ class Database{
                 return $this->conn;
             }else{
 
-                //dsn = "pgsql:host={$this->host};port={$this->port}; dbname={$this->db_name}";
+                //$dsn = "pgsql:host={$this->host};port={$this->port}; dbname={$this->db_name}";
                 $dsn = "pgsql:host={$this->host}; dbname={$this->db_name}";
 
                 try{
